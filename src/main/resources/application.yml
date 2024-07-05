@@ -1,0 +1,19 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+  error:
+    include-stacktrace: always
+
+spring:
+  application:
+    name: adapter-api
+  devtools:
+    restart:
+      enabled: true
+
+logging:
+  level:
+    web: debug
+
