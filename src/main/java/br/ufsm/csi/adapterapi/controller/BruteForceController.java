@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// Controller que recebe a solicitação do cliente.
+// Controller que recebe o hash do client
 
 @RestController
-@RequestMapping("/hash")
+@RequestMapping("/bruteForce")
 @AllArgsConstructor
 public class BruteForceController {
     private final BruteForceService bruteForceService;
 
-    @PostMapping("/bruteForce")
-    public ResponseEntity<HashResDTO> startBruteForce(@RequestBody HashReqDTO request) {
-        HashResDTO response = bruteForceService.bruteForce(request);
+    @PostMapping("/attack")
+    public ResponseEntity<HashResDTO> getBruteForceAttack(@RequestBody HashReqDTO request) {
+        HashResDTO response = bruteForceService.getAttack(request);
         if(response != null) {
             return ResponseEntity.ok(response);
         }
