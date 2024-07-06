@@ -2,7 +2,7 @@ package br.ufsm.csi.adapterapi.service;
 
 import br.ufsm.csi.adapterapi.factory.BruteForceAttackFactory;
 import br.ufsm.csi.adapterapi.model.Algorithm;
-import br.ufsm.csi.adapterapi.model.BruteForceAttack;
+import br.ufsm.csi.adapterapi.adapter.BruteForceAttack;
 import br.ufsm.csi.adapterapi.model.HashReqDTO;
 import br.ufsm.csi.adapterapi.model.HashResDTO;
 import lombok.AllArgsConstructor;

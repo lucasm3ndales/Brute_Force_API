@@ -1,4 +1,4 @@
-package br.ufsm.csi.adapterapi.model;
+package br.ufsm.csi.adapterapi.adapter;
 
 // Target
 public interface BruteForceAttack {

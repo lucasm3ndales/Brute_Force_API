@@ -3,16 +3,17 @@ package br.ufsm.csi.adapterapi.factory;
 import br.ufsm.csi.adapterapi.adapter.MD5AttackAdapter;
 import br.ufsm.csi.adapterapi.adapter.SHA1AttackAdapter;
 import br.ufsm.csi.adapterapi.model.Algorithm;
-import br.ufsm.csi.adapterapi.model.BruteForceAttack;
+import br.ufsm.csi.adapterapi.adapter.BruteForceAttack;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class BruteForceAttackFactory {
+public class BruteForceAttackFactory implements BruteForceAdapterFactory {
     private ApplicationContext applicationContext;
 
+    @Override
     public BruteForceAttack getAdapter(Algorithm algorithm) {
         return switch (algorithm) {
             case Algorithm.MD5 -> applicationContext.getBean(MD5AttackAdapter.class);

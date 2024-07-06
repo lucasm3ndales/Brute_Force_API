@@ -21,6 +21,7 @@ public class BruteForceController {
     @PostMapping("/attack")
     public ResponseEntity<HashResDTO> getBruteForceAttack(@RequestBody HashReqDTO request) {
         HashResDTO response = bruteForceService.getAttack(request);
+        //System.out.println(response);
         if(response != null) {
             return ResponseEntity.ok(response);
         }

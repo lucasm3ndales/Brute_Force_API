@@ -15,16 +15,20 @@ public class MD5AttackService {
     // Tamanho máximo das strings geradas para quebrar o hash, limitando o uso de recursos computacionais
     private static final int MAX_LENGTH = 6;
     // Cinco Minutos em Milisegundos
-    private static final long TIME_LIMIT_MS = 5 * 60 * 1000;
+    private static final long TIME_LIMIT_MS = 2 * 60 * 1000;
 
     // Método para iniciar o ataque
     public String startAttack(String hash) {
         var timeout = System.currentTimeMillis() + TIME_LIMIT_MS;
+        // Counter para ver o número de chamadas feitas
+        var counter = 0;
         AtomicBoolean found = new AtomicBoolean(false);
-        return bruteForce("", hash, timeout, found);
+        return bruteForce("", hash, timeout, found, counter);
     }
 
-    private String bruteForce(String current, String targetHash, long timeout, AtomicBoolean found) {
+    private String bruteForce(String current, String targetHash, long timeout, AtomicBoolean found, int counter) {
+        // Counter para ver o número de chamadas feitas
+        System.out.println(counter);
 
         // Se o hash for encontrado por outra chamada recursiva ou se o tempo esgotar
         if(found.get() || System.currentTimeMillis() > timeout) {
@@ -46,7 +50,7 @@ public class MD5AttackService {
 
         // Recursão para gerar combinações de characteres
         for (char c : ALPHABET.toCharArray()) {
-            String res =    bruteForce(current + c, targetHash, timeout, found);
+            String res =    bruteForce(current + c, targetHash, timeout, found, counter + 1);
 
             if(res != null) {
                 return res;
@@ -58,7 +62,7 @@ public class MD5AttackService {
     }
 
     // Método que converte uma string em um hash MD5
-    private Object hashMD5(String input) {
+    private String hashMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] messageDigest = md.digest(input.getBytes());

@@ -1,6 +1,5 @@
 package br.ufsm.csi.adapterapi.adapter;
 
-import br.ufsm.csi.adapterapi.model.BruteForceAttack;
 import br.ufsm.csi.adapterapi.service.MD5AttackService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
