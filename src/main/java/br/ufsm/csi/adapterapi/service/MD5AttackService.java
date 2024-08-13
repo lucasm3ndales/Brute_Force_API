@@ -56,7 +56,7 @@ public class MD5AttackService {
     private void bruteForce(String current, String targetHash, long timeout, AtomicBoolean found, AtomicInteger counter, AtomicReference<String> foundPassword) {
         // Incrementa o contador de chamadas
         int count = counter.incrementAndGet();
-        //System.out.println("Calls: " + count + " Current string: " + current);
+        System.out.println("Calls: " + count + " Current string: " + current);
 
         // Se o hash for encontrado por outra chamada recursiva ou se o tempo esgotar
         if (found.get() || System.currentTimeMillis() > timeout || current.length() > MAX_LENGTH) {

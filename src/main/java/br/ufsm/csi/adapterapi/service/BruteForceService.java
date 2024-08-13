@@ -30,13 +30,13 @@ public class BruteForceService {
 
             return HashResDTO.builder().password(password).build();
         }
-        // Hash Complexo, Inviável tentar quebrar a criptografia ( hash >= 64 Bits)
+        // Hash Complexo, Inviável tentar quebrar a criptografia ( hash > 64 Bits)
         return null;
     }
 
     // Verifica a complexidade do hash
     private boolean evaluateHash(String hash) {
-        return hash != null && hash.length() <= 32;
+        return hash != null && hash.length() <= 64;
     }
 
 }
