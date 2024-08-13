@@ -30,6 +30,7 @@ public class CORSConfig {
         ));
         config.setAllowedMethods(Arrays.asList(
                 HttpMethod.POST.name(),
+                HttpMethod.GET.name(),
                 HttpMethod.HEAD.name(),
                 HttpMethod.OPTIONS.name()
         ));

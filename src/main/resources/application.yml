@@ -5,6 +5,11 @@ server:
     context-path: /
   error:
     include-stacktrace: always
+  tomcat:
+    connection-timeout: 360000
+    keep-alive-timeout: 300000
+    max-connections: 100
+
 
 spring:
   application:

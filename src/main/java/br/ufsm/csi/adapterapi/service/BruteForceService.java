@@ -22,25 +22,21 @@ public class BruteForceService {
 
             var algorithm = Algorithm.valueOf(dto.algorithm());
 
-            if(algorithm == null) {
-                return null;
-            }
-
             // Factory Adapter
             BruteForceAttack attacker = bruteForceAttackFactory.getAdapter(algorithm);
 
-            // Efetua o ataque com base no adapter do algoritmo do hash
+            // Efetua o ataque com base no adapter do algoritmo do hash recebido
             String password = attacker.attack(dto.hash());
 
             return HashResDTO.builder().password(password).build();
         }
-        // Hash Complexo, Inviável tentar quebrar a criptografia (128 Bits)
+        // Hash Complexo, Inviável tentar quebrar a criptografia ( hash >= 64 Bits)
         return null;
     }
 
     // Verifica a complexidade do hash
     private boolean evaluateHash(String hash) {
-        return hash != null && hash.length() <= 64;
+        return hash != null && hash.length() <= 32;
     }
 
 }

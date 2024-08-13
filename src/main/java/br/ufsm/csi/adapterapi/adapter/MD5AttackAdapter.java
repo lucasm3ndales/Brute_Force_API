@@ -10,7 +10,6 @@ public class MD5AttackAdapter implements BruteForceAttack {
     // MD5AttackService
     private final MD5AttackService md5AttackService;
 
-
     // Chama o serviço responsável por iniciar o ataque MD5
     @Override
     public String attack(String hash) {
